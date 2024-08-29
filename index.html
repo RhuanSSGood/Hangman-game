@@ -43,11 +43,32 @@
         //Escolher uma palavra aleatoria da lista
         palavraEscolhida =
           listaPalavras[Math.floor(Math.random() * listaPalavras.length)];
+        console.log(palavraEscolhida);
 
         //Inicializar a exibição dos underscores "_"
 
         exibicaoPalavra = Array(palavraEscolhida.length).fill("_");
+        console.log(exibicaoPalavra);
+
+        // Iniciar a lista de palavras chutadas
+        letrasChutadas = [];
+
+        // Número Máximo de Tentativas
+        tentativasRestantes = 7;
+
+        // Número de erros
+        numeroErros = 0;
+
+        atualizarExibicao();
       }
+
+      function atualizarExibicao() {
+        document.getElementById("exibicao-palavra").innerText =
+          exibicaoPalavra.join(" ");
+        document.getElementById("letras-chutadas").innerText = `${letrasChutadas.join(", ")}`;
+      }
+
+      window.load = iniciarJogo();
     </script>
   </body>
 </html>
